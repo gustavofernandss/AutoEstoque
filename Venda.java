@@ -30,7 +30,7 @@ public class Venda {
 		if(valor >= 0) {
 		this.valor = valor;}
 		else {
-		throw new IllegalArgumentException("ID de venda inválido");
+		throw new IllegalArgumentException("valor inválido");
 		
 	}
 	public OperadorCaixa getOperador() {
@@ -40,25 +40,37 @@ public class Venda {
 		if(operador != 0) {
 		this.operador = operador;}
 		else {
-		throw new IllegalArgumentException("ID de venda inválido");
+		throw new IllegalArgumentException("Operador inválido");
 		
 	}
 	public List<Produto> getProduto() {
 		return produto;
 	}
 	public void setProduto(Produto[] produto) {
-		this.produto = produto;
+		if(produto != 0) {
+		this.produto = produto;}
+		else {
+		throw new IllegalArgumentException("Produto inválido");
+		
 	}
 	public LocalDate getDataVenda() {
 		return dataVenda;
 	}
 	public void setDataVenda(LocalDate dataVenda) {
+		if(produto != 0) {
+		this.produto = produto;}
+		else {
+		throw new IllegalArgumentException("data inválida");
 		this.dataVenda = dataVenda;
 	}
 	public LocalTime getHoraVenda() {
 		return horaVenda;
 	}
 	public void setHoraVenda(LocalTime horaVenda) {
+		if(produto != 0) {
+		this.produto = produto;}
+		else {
+		throw new IllegalArgumentException("hora inválido");
 		this.horaVenda = horaVenda;
 	}
 
