@@ -1,12 +1,14 @@
 import java.time.LocalDate;
 import java.time.LocalTime;
+import java.util.ArrayList;
+import java.util.List;
 
 public class Venda {
 	
 	private int idVenda;
 	private float valor;
 	private OperadorCaixa operador;
-	private Produto produto[];
+	private List<Produto> produto;
 	private LocalDate dataVenda = LocalDate.now();
 	private LocalTime horaVenda = LocalTime.now();
 	
@@ -18,22 +20,30 @@ public class Venda {
 		if(idVenda >= 0) {
 		this.idVenda = idVenda;}
 		else {
-			System.out.print("Valor invalido");
+		throw new IllegalArgumentException("ID de venda inválido");
 		}
 	}
 	public float getValor() {
 		return valor;
 	}
 	public void setValor(float valor) {
-		this.valor = valor;
+		if(valor >= 0) {
+		this.valor = valor;}
+		else {
+		throw new IllegalArgumentException("ID de venda inválido");
+		
 	}
 	public OperadorCaixa getOperador() {
 		return operador;
 	}
 	public void setOperador(OperadorCaixa operador) {
-		this.operador = operador;
+		if(operador != 0) {
+		this.operador = operador;}
+		else {
+		throw new IllegalArgumentException("ID de venda inválido");
+		
 	}
-	public Produto[] getProduto() {
+	public List<Produto> getProduto() {
 		return produto;
 	}
 	public void setProduto(Produto[] produto) {
@@ -56,8 +66,8 @@ public class Venda {
 	
 	public void realizarVenda() {}
 	public void exibirVenda() {}
-	public void removerProduto(Produto produto[]) {}
-	public void adicionarProduto(Produto produto[]) {}
+	public void removerProduto(List<Produto> produto) {}
+	public void adicionarProduto(List<Produto> produto) {}
 
 	
 	//+ realizarVenda()
