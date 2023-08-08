@@ -103,12 +103,10 @@ public class Venda {
     }
 
     public void removerProduto(Produto produto) {
-        produtos.remove(produto);
         System.out.println("Produto removido");
     }
 
     public void adicionarProduto(Produto produto) {
-        produtos.add(produto);
         System.out.println("Produto adicionado");
     }
 }
