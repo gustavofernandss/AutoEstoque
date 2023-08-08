@@ -1,16 +1,25 @@
+package poo;
+
+
 import java.time.LocalDate;
 import java.time.LocalTime;
-import java.util.ArrayList;
 import java.util.List;
 
 public class Venda {
 
     private int idVenda;
     private float valor;
-    private OperadorCaixa operador;
-    private List<Produto> produtos;  // Corrigido o nome da lista para 'produtos'
+    private Operador operador;
+    private List<Produto> produtos;  
     private LocalDate dataVenda = LocalDate.now();
     private LocalTime horaVenda = LocalTime.now();
+
+    public Venda(int idVenda, Operador operador, List<Produto> produtos){ // constructor para a classe Venda
+    	setIdVenda(idVenda);
+    	setOperador(operador);
+    	setProdutos(produtos);
+    	
+    }
 
     public int getIdVenda() {
         return idVenda;
@@ -36,12 +45,12 @@ public class Venda {
         }
     }
 
-    public OperadorCaixa getOperador() {
+    public Operador getOperador() {
         return operador;
     }
 
-    public void setOperador(OperadorCaixa operador) {
-        if (operador != null) {  // Corrigido o teste de nulidade
+    public void setOperador(Operador operador) {
+        if (operador != null) {  
             this.operador = operador;
         } else {
             throw new IllegalArgumentException("Operador inválido");
@@ -52,7 +61,7 @@ public class Venda {
         return produtos;
     }
 
-    public void setProdutos(List<Produto> produtos) {  // Corrigido o nome do parâmetro
+    public void setProdutos(List<Produto> produtos) {  
         if (produtos != null) {
             this.produtos = produtos;
         } else {
@@ -85,21 +94,22 @@ public class Venda {
     }
 
     public void realizarVenda() {
-        System.out.println("Venda realizada");
+    	
+        System.out.println("Venda realizada com sucesso!");
     }
 
     public void exibirVenda() {
         System.out.println("ID da Venda: " + getIdVenda());
         System.out.println("Valor da Venda: " + getValor());
-        System.out.println("Operador: " + getOperador());
 
         System.out.println("Produtos:");
         for (Produto produto : getProdutos()) {
-            System.out.println(produto);
-        }
+            System.out.println(produto.getNome());
+    }
 
         System.out.println("Data da Venda: " + getDataVenda());
         System.out.println("Hora da Venda: " + getHoraVenda());
+        System.out.println("Caixa responsável: " + getOperador().getNome());
     }
 
     public void removerProduto(Produto produto) {
