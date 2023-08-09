@@ -1,6 +1,5 @@
+// classe main exemplo
 
-import java.util.ArrayList;
-import java.util.List;
 
 public class AutoEstoque {
 
