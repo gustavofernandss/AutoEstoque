@@ -1,16 +1,16 @@
-
-// Projeto Suepermercado - Gerente
 public class Gerente {
 	private String nome;
 	private String senha;
+	private int idGerente;
 	private boolean isGerente;
 	
-	public Gerente(String nome, String senha, boolean isGerente){
+	public Gerente(String nome, String senha, boolean isGerente, int idGerente){
 		setNome(nome);
 		setSenha(senha);
-		this.isGerente = isGerente;
+		setIsGerente(isGerente);
+		setIdGerente(idGerente);
 	}
-	
+	 
 	public void setNome(String nome){
 		if(nome != null){
 			this.nome = nome;
@@ -25,9 +25,31 @@ public class Gerente {
 			}else{
 				System.out.println("A senha não pode ser vazio");
 			}
-		}
+	}
 	
-	public boolean isGerente(){
+	
+	
+	public int getIdGerente() {
+		return idGerente;
+	}
+
+	public void setIdGerente(int idGerente) {
+		this.idGerente = idGerente;
+	}
+
+	public String getNome() {
+		return nome;
+	}
+
+	public String getSenha() {
+		return senha;
+	}
+
+	public void setIsGerente(boolean isGerente) {
+		this.isGerente = isGerente;
+	}
+
+	public boolean getIsGerente(){
 		return isGerente;
 	}
 	
