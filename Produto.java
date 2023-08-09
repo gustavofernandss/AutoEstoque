@@ -62,7 +62,7 @@ public class Produto {
 	}
 
 	public void setEstoque(int estoque) {
-		if (estoque > 0) {
+		if (estoque >= 0) {
 			this.estoque = estoque;
 		} else {
 			System.out.println("Valor inválido! A quantidade deve ser superior a 0");
