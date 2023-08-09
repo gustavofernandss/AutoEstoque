@@ -1,15 +1,20 @@
-package supermercado;
-
-
 public class Operador {
+	
 	private String nome;
 	private String senha;
-	private boolean isOperador;
+	private boolean isGerente;
+	private int idOperador;
 	
-	public Operador(String nome, String senha, boolean isOperador){
-		setNome(nome);
+	public Operador(String nome, String senha, boolean isGerente, int idOperador){
+		setNome(nome); 
 		setSenha(senha);
-		this.isOperador = isOperador;
+		setIsGerente(isGerente);
+		setIdOperador(idOperador);
+	}
+	
+	
+	public String getNome() {
+		return nome;
 	}
 	
 	public void setNome(String nome){
@@ -20,6 +25,11 @@ public class Operador {
 		}
 	}
 	
+
+	public String getSenha() {
+		return senha;
+	}
+
 	public void setSenha(String senha){
 			if(senha != null){
 				this.senha = senha;
@@ -28,26 +38,30 @@ public class Operador {
 			}
 		}
 	
-	public boolean isOperador(){
-		return isOperador;
-	}
 	
+	public boolean getIsGerente() {
+		return isGerente;
+	}
+
+
+	public void setIsGerente(boolean isGerente) {
+		this.isGerente = isGerente;
+	}
+
+
+	public int getIdOperador() {
+		return idOperador;
+	}
+
+
+	public void setIdOperador(int idGerente) {
+		this.idOperador = idGerente;
+	}
+
 	public boolean autenticar(String nome, String senha){
 		return this.nome.equals(nome) && this.senha.equals(senha);
 		
 	}
 
-	public static void main(String[] args) {
-		Operador operador1 = new Operador("Antonio Silva","minhaSenha", false);
-		
-		String nomeOperador = "Antonio Silva";
-        String senhaOperador = "minhaSenha";
-        
-       	if(operador1.autenticar(nomeOperador, senhaOperador)){
-         		System.out.println("Gerente autenticado com sucesso!");
-        }else{
-            	System.out.println("Autenticação falhou. Verifique o nome e a senha.");
-        }
-	}
 
 }
