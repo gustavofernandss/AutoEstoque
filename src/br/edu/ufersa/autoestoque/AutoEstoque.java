@@ -1,16 +1,14 @@
-// classe main exemplo
-
+package br.edu.ufersa.autoestoque;
+import br.edu.ufersa.autoestoque.controller.*;
+import java.util.ArrayList;
 
 public class AutoEstoque {
-
 	public static void main(String[] args) {
 		Tipo tipo1 = new Tipo("Por quantidade", "qtd");
 		Produto produto1 = new Produto(12222223, "Detergente", "Ypê" , tipo1, "Produto de Limpeza", 4.50f );
 		Produto produto2 = new Produto(11300000, "Sabão", "Omo" , tipo1, "Produto de Limpeza", 5.50f);
 		
-		
-		
-		List<Produto> produtos = new ArrayList<>();
+		ArrayList<Produto> produtos = new ArrayList<>();
 		produtos.add(produto1);
         produtos.add(produto2);
         

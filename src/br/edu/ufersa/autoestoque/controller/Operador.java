@@ -1,5 +1,6 @@
+package br.edu.ufersa.autoestoque.controller;
+
 public class Operador {
-	
 	private String nome;
 	private String senha;
 	private boolean isGerente;

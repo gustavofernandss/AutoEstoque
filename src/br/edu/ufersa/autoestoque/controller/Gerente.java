@@ -1,3 +1,5 @@
+package br.edu.ufersa.autoestoque.controller;
+
 public class Gerente {
 	private String nome;
 	private String senha;

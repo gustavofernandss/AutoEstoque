@@ -1,4 +1,6 @@
-class Tipo {
+package br.edu.ufersa.autoestoque.controller;
+
+public class Tipo {
 	private final int codigoTipo;
 	private String nomeTipo;
 	private String formaVenda;

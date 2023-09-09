@@ -1,3 +1,5 @@
+package br.edu.ufersa.autoestoque.controller;
+
 public class Produto {
 	private final int idProd;
 	private Tipo tipo;
