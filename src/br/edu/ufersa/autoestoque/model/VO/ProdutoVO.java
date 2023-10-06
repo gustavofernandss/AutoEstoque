@@ -1,54 +1,22 @@
-package br.edu.ufersa.autoestoque.controller;
+package br.edu.ufersa.autoestoque.model.VO;
 
-public class Produto {
-	private final int idProd;
-	private Tipo tipo;
-	private int codBarras;
+public class ProdutoVO {
+	private String codBarras;
+	private TipoVO tipo;
 	private String nome;
 	private String marca;
 	private String categoria;
 	private float preco;
 	private int estoque;
 	private static int quantProdutos;
-
-	public Produto(int codBarras, String nome, String marca, Tipo tipo, String categoria, float preco) {
-		setCodBarras(codBarras);
-		setNome(nome);
-		setMarca(marca);
-		setTipo(tipo);
-		setCategoria(categoria);
-		setPreco(preco);
-		setEstoque(0);
-		this.idProd = quantProdutos;
-		this.quantProdutos += 1;
-	}
-
-	public void acrescentarEstoque(int quantidade) {
-		if (quantidade > 0) {
-			this.estoque += quantidade;
-		} else {
-			System.out.println("Valor inválido! A quantidade deve ser superior a 0");
-		}
-	}
 	
-	public void diminuirEstoque(int quantidade) {
-		if (quantidade > 0) {
-			this.estoque -= quantidade;
-		} else {
-			System.out.println("Valor inválido! A quantidade deve ser superior a 0");
-		}
-	}
-
-	// Métodos get
-	
-	public void setTipo(Tipo tipo) {
+	public void setTipo(TipoVO tipo) {
 		this.tipo = tipo;
 	}
 
-	public void setCodBarras(int codBarras) {
-		// UPC-E
-		int codeLenght = String.valueOf(codBarras).length();
-		if (codeLenght == 8) {
+	public void setCodBarras(String codBarras) {
+		// Padrão de barras UPC-E
+		if (codBarras.length() == 8) {
 			this.codBarras = codBarras;
 		} else {
 			System.out.println("Valor inválido! O código UPC-E deve ter 8 dígitos inteiros");
@@ -72,7 +40,7 @@ public class Produto {
 	}
 	
 	public void setNome(String nome) {
-		if (nome != "") {
+		if (nome != "" && nome != null) {
 			this.nome = nome;
 		} else {
 			System.out.println("Valor inválido! A string está vazia");
@@ -80,7 +48,7 @@ public class Produto {
 	}
 
 	public void setMarca(String marca) {
-		if (nome != "") {
+		if (nome != "" && nome != null) {
 			this.marca = marca;
 		} else {
 			System.out.println("Valor inválido! A string está vazia");
@@ -88,13 +56,21 @@ public class Produto {
 	}
 
 	public void setCategoria(String categoria) {
-		if (nome != "") {
+		if (nome != "" && nome != null) {
 			this.categoria = categoria;
 		} else {
 			System.out.println("Valor inválido! A string está vazia");
 		}
 	}
 	
+	public static void setQuantProdutos(int novaQuantProdutos) {
+		if (quantProdutos >= 0) {
+			quantProdutos = novaQuantProdutos;
+		} else {
+			System.out.println("Valor inválido! A quantidade deve ser superior a 0");
+		}
+	}
+
 	// Métodos get
 
 	public String getNome() {
@@ -109,11 +85,11 @@ public class Produto {
 		return this.categoria;
 	}
 
-	public Tipo getTipo() {
+	public TipoVO getTipo() {
 		return this.tipo;
 	}
 
-	public int getCodBarras() {
+	public String getCodBarras() {
 		return this.codBarras;
 	}
 
@@ -123,5 +99,17 @@ public class Produto {
 
 	public int getEstoque() {
 		return this.estoque;
+	}
+
+	public int getQuantidade() {
+		return quantProdutos;
+	}
+
+	// Método toString
+	@Override
+	public String toString() {
+		return "Nome: " + nome + "\nMarca: " + marca + "\nCategoria: " + categoria +
+		 "\nTipo: " + tipo + "\nCódigo de Barras: " + codBarras + 
+		 "\nPreço: R$" + preco + "\nEstoque: " + estoque;
 	}
 }
