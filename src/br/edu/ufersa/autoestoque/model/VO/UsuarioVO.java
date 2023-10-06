@@ -23,7 +23,7 @@ public abstract class UsuarioVO {
         if (nome != null && !nome.isEmpty()) {
             this.nome = nome;
         } else {
-            System.out.println("O nome não pode ser vazio");
+            throw new IllegalArgumentException("O nome não pode ser vazio");
         }
     }
 
@@ -31,7 +31,7 @@ public abstract class UsuarioVO {
         if (senha != null && !senha.isEmpty()) {
             this.senha = senha;
         } else {
-            System.out.println("A senha não pode ser vazia");
+            throw new IllegalArgumentException("A senha não pode ser vazia");
         }
     }
 
@@ -39,7 +39,7 @@ public abstract class UsuarioVO {
         if (CPF != null && !CPF.isEmpty() && validarCPF(CPF)) {
             this.CPF = CPF;
         } else {
-            System.out.println("O CPF é inválido");
+            throw new IllegalArgumentException("O CPF é inválido");
         }
     }
 

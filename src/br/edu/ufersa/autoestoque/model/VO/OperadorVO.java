@@ -7,7 +7,7 @@ public class OperadorVO extends UsuarioVO{
 		if(senha.length() == 5){
 			this.senha = senha;
 		}else{
-			System.out.println("A senha deve conter exatamente 5 caracteres");
+			throw new IllegalArgumentException("A senha deve conter exatamente 5 caracteres");
 		}
 	}
 }

@@ -19,7 +19,7 @@ public class ProdutoVO {
 		if (codBarras.length() == 8) {
 			this.codBarras = codBarras;
 		} else {
-			System.out.println("Valor inválido! O código UPC-E deve ter 8 dígitos inteiros");
+			throw new IllegalArgumentException("Valor inválido! O código UPC-E deve ter 8 dígitos inteiros");
 		}
 	}
 
@@ -27,7 +27,7 @@ public class ProdutoVO {
 		if (preco > 0) {
 			this.preco = preco;
 		} else {
-			System.out.println("Valor inválido! O valor deve ser superior a R$0,00");
+			throw new IllegalArgumentException("Valor inválido! O valor deve ser superior a R$0,00");
 		}
 	}
 
@@ -35,7 +35,7 @@ public class ProdutoVO {
 		if (estoque >= 0) {
 			this.estoque = estoque;
 		} else {
-			System.out.println("Valor inválido! A quantidade deve ser superior a 0");
+			throw new IllegalArgumentException("Valor inválido! A quantidade deve ser superior a 0");
 		}
 	}
 	
@@ -43,7 +43,7 @@ public class ProdutoVO {
 		if (nome != "" && nome != null) {
 			this.nome = nome;
 		} else {
-			System.out.println("Valor inválido! A string está vazia");
+			throw new IllegalArgumentException("Valor inválido! A string está vazia");
 		}
 	}
 
@@ -51,7 +51,7 @@ public class ProdutoVO {
 		if (nome != "" && nome != null) {
 			this.marca = marca;
 		} else {
-			System.out.println("Valor inválido! A string está vazia");
+			throw new IllegalArgumentException("Valor inválido! A string está vazia");
 		}
 	}
 
@@ -59,7 +59,7 @@ public class ProdutoVO {
 		if (nome != "" && nome != null) {
 			this.categoria = categoria;
 		} else {
-			System.out.println("Valor inválido! A string está vazia");
+			throw new IllegalArgumentException("Valor inválido! A string está vazia");
 		}
 	}
 	
@@ -67,7 +67,7 @@ public class ProdutoVO {
 		if (quantProdutos >= 0) {
 			quantProdutos = novaQuantProdutos;
 		} else {
-			System.out.println("Valor inválido! A quantidade deve ser superior a 0");
+			throw new IllegalArgumentException("Valor inválido! A quantidade deve ser superior a 0");
 		}
 	}
 

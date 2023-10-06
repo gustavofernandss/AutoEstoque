@@ -7,7 +7,7 @@ public class GerenteVO extends UsuarioVO{
 		if(senha.length() >= 10){
 			this.senha = senha;
 		}else{
-			System.out.println("A senha deve conter pelo menos 10 caracteres");
+			throw new IllegalArgumentException("A senha deve conter pelo menos 10 caracteres");
 		}
 	}
 }

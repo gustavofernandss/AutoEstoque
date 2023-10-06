@@ -11,7 +11,7 @@ public class TipoVO {
 		if (codigoTipo > 0) {
 			this.codigoTipo = codigoTipo;
 		} else {
-			System.out.println("Código inválido! O valor é menor que 1");
+			throw new IllegalArgumentException("Código inválido! O valor é menor que 1");
 		}
 	}
 
@@ -19,7 +19,7 @@ public class TipoVO {
 		if (nomeTipo != "" && nomeTipo != null) {
 			this.nomeTipo = nomeTipo;
 		} else {
-			System.out.println("Nome inválido! O valor está vazio");
+			throw new IllegalArgumentException("Nome inválido! O valor está vazio");
 		}
 	}
 
@@ -27,7 +27,7 @@ public class TipoVO {
 		if (formaVenda != "" && formaVenda != null) {
 			this.formaVenda = formaVenda;
 		} else {
-			System.out.println("Forma de venda inválida! O valor está vazio");
+			throw new IllegalArgumentException("Forma de venda inválida! O valor está vazio");
 		}
 	}
 
@@ -35,7 +35,7 @@ public class TipoVO {
 		if (quantTipo > 0) {
 			TipoVO.quantTipo = quantTipo;
 		} else {
-			System.out.println("Quantidade inválida! O valor é menor que 1");
+			throw new IllegalArgumentException("Quantidade inválida! O valor é menor que 1");
 		}
 	}
 
