@@ -1,0 +1,39 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.paint.*?>
+<?import javafx.scene.text.*?>
+<?import javafx.scene.control.*?>
+<?import javafx.scene.image.*?>
+<?import java.lang.*?>
+<?import javafx.scene.layout.*?>
+
+<Pane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="230.0" prefWidth="452.0" xmlns="http://javafx.com/javafx/8" xmlns:fx="http://javafx.com/fxml/1">
+   <children>
+      <ImageView fitHeight="39.0" fitWidth="118.0" layoutX="232.0" layoutY="96.0" pickOnBounds="true" preserveRatio="true" />
+      <Button layoutX="133.0" layoutY="158.0" mnemonicParsing="false" prefHeight="44.0" prefWidth="173.0" style="-fx-background-color: #45a26e;" text="Confirmar" textFill="WHITE">
+         <font>
+            <Font size="20.0" />
+         </font>
+      </Button>
+      <Label layoutX="119.0" layoutY="49.0" prefHeight="30.0" prefWidth="226.0" text="Confirma a exclusão deste item?" textFill="#359868">
+         <font>
+            <Font size="15.0" />
+         </font>
+      </Label>
+      <Button layoutX="398.0" layoutY="10.0" mnemonicParsing="false" prefHeight="39.0" prefWidth="33.0" style="-fx-background-insets: 25255252;" text="X">
+         <font>
+            <Font size="20.0" />
+         </font>
+      </Button>
+      <Label layoutX="119.0" layoutY="87.0" prefHeight="30.0" prefWidth="226.0" text="O item será removido desta lista, mas permanecerá no banco de dados" textFill="#359868">
+         <font>
+            <Font size="15.0" />
+         </font>
+      </Label>
+      <Label layoutX="101.0" layoutY="105.0" prefHeight="30.0" prefWidth="262.0" text=" mas permanecerá no banco de dados" textFill="#359868">
+         <font>
+            <Font size="15.0" />
+         </font>
+      </Label>
+   </children>
+</Pane>
