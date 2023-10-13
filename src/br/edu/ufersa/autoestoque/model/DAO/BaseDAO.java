@@ -4,9 +4,9 @@ import java.sql.Connection;
 import java.sql.DriverManager;
 import java.sql.SQLException;
 
-public class BaseDAO {
+public abstract class BaseDAO<VO> implements BaseInterDAO<VO> {
     // Conexão com postgresql
-    private static final String URL = "jdbc:postgresql://localhost:5432/autoestoque";
+    private static final String URL = "jdbc:postgresql://localhost:5432/AutoEstoque";
     private static Connection conexao;
 
     // Usuário e senha
