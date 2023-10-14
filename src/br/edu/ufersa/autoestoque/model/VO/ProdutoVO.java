@@ -81,7 +81,7 @@ public class ProdutoVO {
 		return this.marca;
 	}
 
-	public String getCategaria() {
+	public String getCategoria() {
 		return this.categoria;
 	}
 
