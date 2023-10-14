@@ -1,13 +1,11 @@
-package br.edu.ufersa.autoestoque.model.dao;
-import java.util.List;
-import br.edu.ufersa.autoestoque.exception.InsertException;
-import br.edu.ufersa.autoestoque.exception.NotFoundException;
-import br.edu.ufersa.autoestoque.model.vo.UsuarioVO;
+package br.edu.ufersa.autoestoque.model.DAO;
+import java.sql.ResultSet;
+import java.sql.SQLException;
 
-public interface BaseInterDAO {
-	public void cadastrar(UsuarioVO vo) throws InsertException;
-	public void buscarPorId(UsuarioVO vo) throws NotFoundException;
-	public List<UsuarioVO> listar() throws InsertException;
-	public void alterar(UsuarioVO vo) throws InsertException;
-	public void remover(UsuarioVO vo) throws InsertException;
+public interface BaseInterDAO<VO> {
+    public void inserir(VO entity) throws SQLException; 
+    public void atualizar(VO entity) throws SQLException;
+    public void deletar(VO entity) throws SQLException;
+    public ResultSet buscarPorId(VO entity) throws SQLException;
+    public ResultSet listar() throws SQLException;
 }
