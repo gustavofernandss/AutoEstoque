@@ -86,4 +86,8 @@ public abstract class UsuarioVO {
         // Comparação entre os dígitos verificadores e os dois últimos dígitos do CPF
         return primeiroDigitoVerificador == digitos[9] && segundoDigitoVerificador == digitos[10];
     }
+    
+    public UsuarioVO() {
+	}; // Construtor default
+
 }

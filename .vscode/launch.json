@@ -1,0 +1,36 @@
+{
+    // Use IntelliSense to learn about possible attributes.
+    // Hover to view descriptions of existing attributes.
+    // For more information, visit: https://go.microsoft.com/fwlink/?linkid=830387
+    "version": "0.2.0",
+    "configurations": [
+        {
+            "type": "java",
+            "name": "Current File",
+            "request": "launch",
+            "mainClass": "${file}"
+        },
+        {
+            "type": "java",
+            "name": "AutoEstoque",
+            "request": "launch",
+            "mainClass": "br.edu.ufersa.autoestoque.AutoEstoque",
+            "projectName": "AutoEstoque",
+            "vmArgs": "--module-path \"C:/Program Files/Java/javafx-sdk-21/lib\" --add-modules javafx.controls,javafx.fxml"
+        },
+        {
+            "type": "java",
+            "name": "TelaLogin",
+            "request": "launch",
+            "mainClass": "br.edu.ufersa.autoestoque.view.TelaLogin",
+            "projectName": "AutoEstoque"
+        },
+        {
+            "type": "java",
+            "name": "TelaSignUp",
+            "request": "launch",
+            "mainClass": "br.edu.ufersa.autoestoque.view.TelaSignUp",
+            "projectName": "AutoEstoque"
+        }
+    ]
+}
