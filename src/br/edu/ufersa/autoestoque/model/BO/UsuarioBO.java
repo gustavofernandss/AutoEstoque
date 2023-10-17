@@ -1,6 +1,7 @@
 package br.edu.ufersa.autoestoque.model.BO;
 
 import br.edu.ufersa.autoestoque.model.VO.UsuarioVO;
+import br.edu.ufersa.autoestoque.exception.AutenticationException;
 import br.edu.ufersa.autoestoque.model.DAO.UsuarioDAO;
 
 import java.sql.ResultSet;
@@ -9,7 +10,7 @@ import java.util.ArrayList;
 import java.util.List;
 import java.util.UUID;
 
-public class UsuarioBO<UsuarioVO>{
+public class UsuarioBO implements UsuarioInterBO <UsuarioVO>{
 	
 	
 	
@@ -64,6 +65,12 @@ public class UsuarioBO<UsuarioVO>{
 		List<UsuarioVO> usuarios = dao.listar();
 
 		return usuarios;
+	}
+
+	@Override
+	public UsuarioVO autenticar(UsuarioVO vo) throws AutenticationException {
+		// TODO Auto-generated method stub
+		return null;
 	}
 
 

@@ -32,7 +32,7 @@ public class FrontController {
 	@FXML private TextField cadSenhaConfirm;
 	@FXML private TextField cadNome;
 	@FXML private Label erroCad;
-	UsuarioInterBO<UsuarioVO> usuBO = new UsuarioBO<UsuarioVO>();	
+		
 
 	public void autenticar(ActionEvent event) throws AutenticationException {
 		
@@ -61,6 +61,6 @@ public class FrontController {
 	}
 	
 	  public void logout(ActionEvent event) throws Exception{
-		   telaLogin();
+		  
 	   }
 }

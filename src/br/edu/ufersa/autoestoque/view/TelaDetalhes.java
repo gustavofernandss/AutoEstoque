@@ -6,7 +6,7 @@ import javafx.scene.Parent;
 import javafx.scene.Scene;
 import javafx.stage.Stage;
 
-public class TelaSignUp extends Application{
+public class TelaDetalhes extends Application{
 
 	public static void main(String[] args) {
 		launch();
@@ -16,10 +16,10 @@ public class TelaSignUp extends Application{
 	@Override
 	public void start(Stage primaryStage) throws Exception {
 	
-		Parent root = FXMLLoader.load(getClass().getResource("VE/Sign up.fxml"));
+		Parent root = FXMLLoader.load(getClass().getResource("VE/Detalhes do produto.fxml"));
 		
 		Scene cena = new Scene(root);
-		primaryStage.setTitle("AutoEstoque Cadastro");
+		primaryStage.setTitle("Venda");
 		primaryStage.setScene(cena);
 		primaryStage.show();
 		
