@@ -200,7 +200,7 @@ public class VendaDAO<VO extends VendaVO> extends BaseDAO<VO>{
     // Listar produtos de uma venda
 
     public ResultSet listarProdutosVenda(VO venda) throws SQLException {
-        String sql = "select * from produtos_venda where id_venda = ?";
+        String sql = "SELECT vendas.ID_Venda, vendas.Data_Venda, produtos_venda.CodBarras, produtos_venda.Nome FROM vendas INNER JOIN produtos_venda ON produtos_venda.ID_Venda = vendas.ID_Venda WHERE id_venda = ?";
         PreparedStatement ptst;
         ResultSet rs = null;
 

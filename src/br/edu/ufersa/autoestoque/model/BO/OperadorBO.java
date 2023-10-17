@@ -1,4 +1,4 @@
 package br.edu.ufersa.autoestoque.model.BO;
 
-public class GerenteBO extends UsuarioBO{
+public class OperadorBO extends UsuarioBO{
 }

@@ -2,14 +2,20 @@ package br.edu.ufersa.autoestoque.model.BO;
 
 import java.sql.ResultSet;
 import java.sql.SQLException;
+import java.util.List;
 
+import br.edu.ufersa.autoestoque.exception.AtualizarEX;
+import br.edu.ufersa.autoestoque.exception.BuscarEX;
+import br.edu.ufersa.autoestoque.exception.DeletarEX;
 import br.edu.ufersa.autoestoque.exception.InserirEX;
+import br.edu.ufersa.autoestoque.exception.InsertException;
 import br.edu.ufersa.autoestoque.model.DAO.UsuarioDAO;
 import br.edu.ufersa.autoestoque.model.VO.UsuarioVO;
 
-public class UsuarioBO {
+public class UsuarioBO implements UsuarioInterBO {
     private UsuarioDAO usuarioDAO = new UsuarioDAO();
 
+    @Override
     public void inserir(UsuarioVO usuario) throws InserirEX {
         try {
             if (usuario != null) {
@@ -26,67 +32,84 @@ public class UsuarioBO {
         }
     }
 
-    public void deletar(UsuarioVO usuario) throws InserirEX {
+    @Override
+    public void deletar(UsuarioVO usuario) throws DeletarEX {
         try {
             if (usuario != null) {
                 try {
                     usuarioDAO.deletar(usuario);
                 } catch (SQLException e) {
-                    throw new InserirEX();
+                    throw new DeletarEX();
                 }
             } else {
-                throw new InserirEX();
+                throw new DeletarEX();
             }
-        } catch (InserirEX e) {
-            throw new InserirEX();
+        } catch (DeletarEX e) {
+            throw new DeletarEX();
         }
     }
 
-    public void atualizar(UsuarioVO usuario) throws InserirEX {
+    @Override
+    public void atualizar(UsuarioVO usuario) throws AtualizarEX {
         try {
             if (usuario != null) {
                 try {
                     usuarioDAO.atualizar(usuario);
                 } catch (SQLException e) {
-                    throw new InserirEX();
+                    throw new AtualizarEX();
                 }
             } else {
-                throw new InserirEX();
+                throw new AtualizarEX();
             }
-        } catch (InserirEX e) {
-            throw new InserirEX();
+        } catch (AtualizarEX e) {
+            throw new AtualizarEX();
         }
     }
 
-    public ResultSet buscarPorId(UsuarioVO usuario) throws InserirEX {
+    @Override
+    public ResultSet buscarPorId(UsuarioVO usuario) throws BuscarEX {
         try {
             if (usuario != null) {
                 try {
                     return usuarioDAO.buscarPorId(usuario);
                 } catch (SQLException e) {
-                    throw new InserirEX();
+                    throw new BuscarEX();
                 }
             } else {
-                throw new InserirEX();
+                throw new BuscarEX();
             }
-        } catch (InserirEX e) {
-            throw new InserirEX();
+        } catch (BuscarEX e) {
+            throw new BuscarEX();
         }
     }
 
-    public ResultSet buscarPorLogin(UsuarioVO usuario) throws InserirEX {
-        try {
+    @Override
+    public ResultSet buscarPorLogin(UsuarioVO usuario) throws BuscarEX {
+        try{
             if (usuario != null) {
                 try {
                     return usuarioDAO.buscarPorNome(usuario);
                 } catch (SQLException e) {
-                    throw new InserirEX();
+                    throw new BuscarEX();
                 }
             } else {
-                throw new InserirEX();
+                throw new BuscarEX();
             }
-        } catch (InserirEX e) {
-            throw new InserirEX();
+        } catch (BuscarEX e) {
+            throw new BuscarEX();
+        }
+    }
+
+    @Override
+    public ResultSet listar() throws BuscarEX {
+        try {
+            try {
+                return usuarioDAO.listar();
+            } catch (SQLException e) {
+                throw new BuscarEX();
+            }
+        } catch (BuscarEX e) {
+            throw new BuscarEX();
         }
     }
 }
