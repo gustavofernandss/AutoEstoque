@@ -1,7 +1,8 @@
-CREATE TABLE Usuarios (
+CREATE TABLE CREATE TABLE Usuarios (
 	CPF varchar(11) primary key,
 	Nome varchar(70),
-	Senha varchar(30)
+	Senha varchar(30),
+	Faturamento int
 );
 
 CREATE TABLE Vendas (
@@ -31,7 +32,15 @@ CREATE TABLE Produtos (
 CREATE TABLE Produtos_Vendas (
 	Cod_Barras varchar(12) REFERENCES Produtos(Cod_Barras)
 	ON UPDATE CASCADE,
-	CPF_Usuario varchar(11) REFERENCES Usuarios(CPF),
+	ID_venda varchar(11) REFERENCES vendas(id_venda),
 	Quantidade int,
-	primary key (Cod_Barras, CPF_Usuario)
+	primary key (Cod_Barras, ID_venda)
+);
+
+CREATE TABLE produtos_aposentados (
+	Cod_Barras varchar(12) primary key,
+	Nome varchar(50),
+	Marca varchar(50),
+	Categoria varchar(20),
+	Id_Tipo smallint REFERENCES Tipo(Id_Tipo)
 )
