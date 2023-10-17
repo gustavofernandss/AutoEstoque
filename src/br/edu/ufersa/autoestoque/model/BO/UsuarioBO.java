@@ -1,79 +1,92 @@
 package br.edu.ufersa.autoestoque.model.BO;
 
-import br.edu.ufersa.autoestoque.model.VO.UsuarioVO;
-import br.edu.ufersa.autoestoque.exception.AutenticationException;
-import br.edu.ufersa.autoestoque.model.DAO.UsuarioDAO;
-
 import java.sql.ResultSet;
 import java.sql.SQLException;
-import java.util.ArrayList;
-import java.util.List;
-import java.util.UUID;
 
-public class UsuarioBO implements UsuarioInterBO <UsuarioVO>{
-	
-	
-	
-	public void cadastrar(UsuarioVO vo) throws Exception {
-		try {
-			ResultSet rs = dao.buscar(vo);
-			if (rs.next()) {
-				throw new Exception("Impossível inserir, pois já existe um usuario com esse login");
-			} else {
-				dao.inserir(vo);
-			}
-		} catch (SQLException e) {
-			throw new Exception(e.getMessage());
-		}
-	}
-	
-	public void alterar(UsuarioVO vo) throws Exception {
-		try {
-			ResultSet rs = dao.buscar(vo);
-			if (rs.next()) {
-				dao.alterar(vo);
-			} else {
-				throw new Exception("Impossível alterar, pois não existe nenhum usuario com esse login");
-			}
-		} catch (SQLException e) {
-			throw new Exception(e.getMessage());
-		}
-	}
-	
-	public void remover(UsuarioVO vo) throws Exception {
-		try {
-			ResultSet rs = dao.buscar(vo);
-			if (rs.next()) {
-				dao.remover(vo);
-			} else {
-				throw new Exception("Impossível remover, pois não existe nenhum usuario com esse login");
-			}
-		} catch (SQLException e) {
-			throw new Exception(e.getMessage());
-		}
+import br.edu.ufersa.autoestoque.exception.InserirEX;
+import br.edu.ufersa.autoestoque.model.DAO.UsuarioDAO;
+import br.edu.ufersa.autoestoque.model.VO.UsuarioVO;
 
-	}
-	
-	public UsuarioVO buscarUsuario(String login) {
-		// toDO
-		UsuarioVO usuario = new UsuarioVO();
+public class UsuarioBO {
+    private UsuarioDAO usuarioDAO = new UsuarioDAO();
 
-		return usuario;
-	}
+    public void inserir(UsuarioVO usuario) throws InserirEX {
+        try {
+            if (usuario != null) {
+                try {
+                    usuarioDAO.inserir(usuario);
+                } catch (SQLException e) {
+                    throw new InserirEX();
+                }
+            } else {
+                throw new InserirEX();
+            }
+        } catch (InserirEX e) {
+            throw new InserirEX();
+        }
+    }
 
-	public List<UsuarioVO> listar() {
-		List<UsuarioVO> usuarios = dao.listar();
+    public void deletar(UsuarioVO usuario) throws InserirEX {
+        try {
+            if (usuario != null) {
+                try {
+                    usuarioDAO.deletar(usuario);
+                } catch (SQLException e) {
+                    throw new InserirEX();
+                }
+            } else {
+                throw new InserirEX();
+            }
+        } catch (InserirEX e) {
+            throw new InserirEX();
+        }
+    }
 
-		return usuarios;
-	}
+    public void atualizar(UsuarioVO usuario) throws InserirEX {
+        try {
+            if (usuario != null) {
+                try {
+                    usuarioDAO.atualizar(usuario);
+                } catch (SQLException e) {
+                    throw new InserirEX();
+                }
+            } else {
+                throw new InserirEX();
+            }
+        } catch (InserirEX e) {
+            throw new InserirEX();
+        }
+    }
 
-	@Override
-	public UsuarioVO autenticar(UsuarioVO vo) throws AutenticationException {
-		// TODO Auto-generated method stub
-		return null;
-	}
+    public ResultSet buscarPorId(UsuarioVO usuario) throws InserirEX {
+        try {
+            if (usuario != null) {
+                try {
+                    return usuarioDAO.buscarPorId(usuario);
+                } catch (SQLException e) {
+                    throw new InserirEX();
+                }
+            } else {
+                throw new InserirEX();
+            }
+        } catch (InserirEX e) {
+            throw new InserirEX();
+        }
+    }
 
-
-
-
+    public ResultSet buscarPorLogin(UsuarioVO usuario) throws InserirEX {
+        try {
+            if (usuario != null) {
+                try {
+                    return usuarioDAO.buscarPorNome(usuario);
+                } catch (SQLException e) {
+                    throw new InserirEX();
+                }
+            } else {
+                throw new InserirEX();
+            }
+        } catch (InserirEX e) {
+            throw new InserirEX();
+        }
+    }
 }

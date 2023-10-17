@@ -1,7 +1,8 @@
 CREATE TABLE CREATE TABLE Usuarios (
 	CPF varchar(11) primary key,
 	Nome varchar(70),
-	Senha varchar(30)
+	Senha varchar(30),
+	Faturamento int
 );
 
 CREATE TABLE Vendas (

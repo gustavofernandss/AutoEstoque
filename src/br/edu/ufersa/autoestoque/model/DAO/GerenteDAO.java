@@ -1,4 +1,4 @@
 package br.edu.ufersa.autoestoque.model.DAO;
 
-public class GerenteDAO {
+public class GerenteDAO extends UsuarioDAO{
 }

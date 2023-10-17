@@ -83,71 +83,6 @@ public class VendaDAO<VO extends VendaVO> extends BaseDAO<VO>{
         }
     }
 
-    // Atualizar cada atributo das vendas
-    public void atualizarValor(VO venda) throws SQLException {
-        String sql = "update Vendas set valor = ? where id_venda = ?";
-        PreparedStatement ptst;
-
-        try {
-            ptst = getConnection().prepareStatement(sql);
-            ptst.setDouble(1, venda.getValor());
-            ptst.setInt(2, venda.getIdVenda());
-            ptst.executeUpdate();
-        } catch (SQLException e) {
-            System.out.println("Erro ao atualizar valor da venda: " + e.getMessage());
-        } finally {
-            closeConnection();
-        }
-    }
-
-    public void atualizarDataVenda(VO venda) throws SQLException {
-        String sql = "update Vendas set data_venda = ? where id_venda = ?";
-        PreparedStatement ptst;
-
-        try {
-            ptst = getConnection().prepareStatement(sql);
-            ptst.setDate(1, java.sql.Date.valueOf(venda.getDataVenda()));
-            ptst.setInt(2, venda.getIdVenda());
-            ptst.executeUpdate();
-        } catch (SQLException e) {
-            System.out.println("Erro ao atualizar data da venda: " + e.getMessage());
-        } finally {
-            closeConnection();
-        }
-    }
-
-    public void atualizarHoraVenda(VO venda) throws SQLException {
-        String sql = "update Vendas set hora_venda = ? where id_venda = ?";
-        PreparedStatement ptst;
-
-        try {
-            ptst = getConnection().prepareStatement(sql);
-            ptst.setTime(1, Time.valueOf(venda.getHoraVenda()));
-            ptst.setInt(2, venda.getIdVenda());
-            ptst.executeUpdate();
-        } catch (SQLException e) {
-            System.out.println("Erro ao atualizar hora da venda: " + e.getMessage());
-        } finally {
-            closeConnection();
-        }
-    }
-
-    public void atualizarOperador(VO venda) throws SQLException {
-        String sql = "update Vendas set cpf_usuario = ? where id_venda = ?";
-        PreparedStatement ptst;
-
-        try {
-            ptst = getConnection().prepareStatement(sql);
-            ptst.setString(1, venda.getOperador().getCPF());
-            ptst.setInt(2, venda.getIdVenda());
-            ptst.executeUpdate();
-        } catch (SQLException e) {
-            System.out.println("Erro ao atualizar operador da venda: " + e.getMessage());
-        } finally {
-            closeConnection();
-        }
-    }
-
     // Deletar a venda e os produtos da venda
 
     @Override
@@ -161,21 +96,6 @@ public class VendaDAO<VO extends VendaVO> extends BaseDAO<VO>{
             ptst.executeUpdate();
         } catch (SQLException e) {
             System.out.println("Erro ao deletar venda: " + e.getMessage());
-        } finally {
-            closeConnection();
-        }
-    }
-
-    public void deletarProdutosVenda(VO venda) throws SQLException {
-        String sql = "delete from produtos_venda where id_venda = ?";
-        PreparedStatement ptst;
-
-        try {
-            ptst = getConnection().prepareStatement(sql);
-            ptst.setInt(1, venda.getIdVenda());
-            ptst.executeUpdate();
-        } catch (SQLException e) {
-            System.out.println("Erro ao deletar produtos da venda: " + e.getMessage());
         } finally {
             closeConnection();
         }
